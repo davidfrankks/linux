@@ -1,0 +1,34 @@
+# setup-alpine answer file
+
+# Set hostname to alpine-test
+HOSTNAMEOPTS="-n alpine-test"
+
+# Use US layout with US variant
+KEYMAPOPTS="us us"
+
+# Contents of /etc/network/interfaces
+INTERFACESOPTS="auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+    hostname alpine-test
+"
+
+# Set timezone to UTC
+TIMEZONEOPTS="-z America/Chicago"
+
+# Proxy Options
+PROXYOPTS="none"
+
+# Add a random mirror
+APKREPOSOPTS="-1"
+
+# Install Openssh
+SSHDOPTS="-c openssh"
+
+# Use openntpd
+NTPOPTS="-c chrony"
+
+# Use /dev/sda as a data disk
+DISKOPTS="-m sys /dev/sda"
